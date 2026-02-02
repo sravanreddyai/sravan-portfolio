@@ -3,216 +3,494 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sravan Gatla | GenAI & ML Consultant</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sravan Gatla | Senior GenAI & ML Consultant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background: var(--white);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary);
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--white);
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
+
+        .content {
+            padding: 20px 30px;
+            background-color: var(--white);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.4rem;
+        }
+
+        /* Chatbot Styles */
+        #chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            max-height: 500px;
+            background: var(--white);
+            border-radius: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        #chatbot-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        #chatbot-header img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+        }
+
+        #chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            height: 300px;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            max-width: 80%;
+        }
+
+        .bot-msg {
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem 1rem 1rem 0;
+            align-self: flex-start;
+        }
+
+        .user-msg {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem 1rem 0 1rem;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        #chatbot-input {
+            padding: 1rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        #chatbot-input input {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        #chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::after { left: 21px; }
+            .right { left: 0; }
+        }
+    </style>
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    
-    <header class="site-header">
-        <div class="container">
-            <nav class="nav">
-                <div class="brand">
-                    <div class="brand-mark">SG</div>
-                    <span class="brand-text">Sravan Gatla</span>
-                </div>
-                <button class="nav-toggle" aria-expanded="false"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
-                <div class="nav-links" data-navlinks>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </nav>
+
+<header>
+    <div class="container nav">
+        <a href="#" class="logo">SG Portfolio</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
-    </header>
-    
-    <main id="main">
-        <section class="hero section">
-            <div class="container">
-                <div class="hero-grid">
-                    <div>
-                        <span class="pill"><span class="dot"></span>Senior GenAI & ML Consultant</span>
-                        <h1>Building secure, scalable AI products that ship</h1>
-                        <p class="lede">I help enterprises move from GenAI pilots to production: RAG, agentic workflows, MLOps, and cloud-native AI platforms—built with strong governance, observability, and measurable ROI.</p>
-                        <div class="hero-cta"><a href="#contact" class="btn">Let's talk</a><a href="https://linkedin.com/in/sravan-gatla-2a0110125" target="_blank" class="btn btn-ghost">LinkedIn</a></div>
-                        <div class="quick-facts">
-                            <div><dt>Location</dt><dd>Herndon, VA</dd></div>
-                            <div><dt>Email</dt><dd><a href="mailto:sravanreddygatla9@gmail.com">sravanreddygatla9@gmail.com</a></dd></div>
-                            <div><dt>Phone</dt><dd><a href="tel:+12406210619">+1 (240) 621-0619</a></dd></div>
-                        </div>
-                    </div>
-                    <div class="hero-card">
-                        <div class="photo-wrap"><img src="assets/A1DF430A-DA9B-48B3-B48A-4A90B46A60A7.png" alt="Headshot of Sravan Gatla"></div>
-                        <div class="hero-card-body">
-                            <h3 class="hero-card-title">What I do</h3>
-                            <ul class="checklist">
-                                <li>GenAI & LLM strategy → production rollout</li>
-                                <li>RAG, embeddings, evaluation, and safety guardrails</li>
-                                <li>Cloud AI engineering (Azure/AWS/GCP) + MLOps</li>
-                                <li>Monitoring, drift detection, and cost optimization</li>
-                            </ul>
-                            <div class="hero-badges">
-                                <span class="badge">11+ years AI/ML & data engineering</span>
-                                <span class="badge">Banking • Telecom • Healthcare • Finance</span>
-                                <span class="badge">Azure OpenAI • LangChain/LangGraph • AKS</span>
-                                <span class="badge">Power BI • Grafana/Prometheus • CI/CD</span>
-                            </div>
-                            <a href="assets/Sravan Gatla Senior Gen AI & ML Consultant -Enterprise LLM Solutions - Cloud AI Engineering.docx" download class="btn btn-small" style="margin-top:16px;">Download Resume</a>
-                        </div>
-                    </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Sravan Gatla</h1>
+            <p>Senior GenAI & ML Consultant | Enterprise Software Engineer</p>
+            <p>Specializing in LLM solutions, Azure cloud, and Python integration.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+        <div class="hero-image">
+            <img src="sravan-profile.jpg" alt="Sravan Gatla">
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">Professional Summary</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+            Multilingual software professional with strong expertise in AI/ML, cloud platforms (Azure, AWS), and Python development. 
+            Experienced in enterprise LLM solutions implementation, RAG pipeline development, and Copilot integration projects.
+        </p>
+    </div>
+</section>
+
+<section id="experience" style="background: #f1f5f9;">
+    <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>Senior Consultant</h3>
+                    <p>Wells Fargo | Present</p>
+                    <p>Implementing Enterprise LLM solutions and GenAI strategies.</p>
                 </div>
             </div>
-        </section>
-        
-        <section id="about" class="section section-alt">
-            <div class="container">
-                <h2>About</h2>
-                <div class="two-col">
-                    <div>
-                        <p>I'm a Senior GenAI & ML Consultant / AI Engineer with 11+ years of experience delivering enterprise-scale AI, ML, and advanced analytics across banking, healthcare, telecom, and finance. I lead GenAI adoption roadmaps, build LLM-driven automation and predictive models, and turn experiments into production systems with governance and observability.</p>
-                        <p>Recent work includes Azure OpenAI GPT-4 assistants, RAG pipelines with vector databases and Cognitive Search, self-healing ML monitoring, and cloud-native microservices for summarization and analytics.</p>
-                    </div>
-                    <div class="callout">
-                        <h3 class="callout-title">Focus areas</h3>
-                        <ul class="chips">
-                            <li>Agentic workflows</li>
-                            <li>RAG & Vector Search</li>
-                            <li>LLM fine-tuning</li>
-                            <li>Responsible AI</li>
-                            <li>Data engineering</li>
-                            <li>MLOps</li>
-                        </ul>
-                        <p style="margin-top:16px; color:var(--muted); font-size:0.9rem;"><strong>Profile:</strong> <a href="https://linkedin.com/in/sravan-gatla-2a0110125" target="_blank" class="link">linkedin.com/in/sravan-gatla-2a0110125</a></p>
-                    </div>
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>Azure Cloud Engineer</h3>
+                    <p>Wabtec | Previous</p>
+                    <p>Managed cloud infrastructure and automation pipelines.</p>
                 </div>
             </div>
-        </section>
-        
-        <section id="skills" class="section">
-            <div class="container">
-                <h2>Technical Skills</h2>
-                <div class="grid cards-2">
-                    <div>
-                        <h3>GenAI & ML</h3>
-                        <ul class="chips">
-                            <li>Azure OpenAI (GPT-4, embeddings)</li>
-                            <li>LangChain / LangGraph / LangFlow</li>
-                            <li>RAG pipelines & prompt engineering</li>
-                            <li>Scikit-learn, TensorFlow, PyTorch</li>
-                            <li>NLP & Explainable AI (XAI)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Cloud & MLOps</h3>
-                        <ul class="chips">
-                            <li>Azure AI Foundry, Copilot Studio, AKS</li>
-                            <li>AWS (S3, Lambda, SageMaker)</li>
-                            <li>GCP (BigQuery, Vertex AI)</li>
-                            <li>Docker, Kubernetes, Terraform, CI/CD</li>
-                            <li>Grafana, Prometheus, App Insights</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="experience" class="section section-alt">
-            <div class="container">
-                <h2>Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-meta">
-                            <div class="timeline-role">Sr. GenAI & ML Consultant</div>
-                            <div class="timeline-org">Wells Fargo</div>
-                            <div class="timeline-date">Apr 2024 — Present</div>
-                        </div>
-                        <div>
-                            <ul>
-                                <li>Led enterprise GenAI adoption: GPT-4 assistants and RAG with Cognitive Search</li>
-                                <li>Built self-healing monitoring with drift detection and retraining triggers</li>
-                                <li>Implemented RBAC, data masking, audit trails, and responsible AI guardrails</li>
-                                <li>Automated CI/CD deployments on AKS, reducing release cycles</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-meta">
-                            <div class="timeline-role">Sr. GenAI & ML Consultant</div>
-                            <div class="timeline-org">AT&T</div>
-                            <div class="timeline-date">Jan 2023 — Apr 2024</div>
-                        </div>
-                        <div>
-                            <ul>
-                                <li>Deployed LLM chatbots for telecom support, reducing manual tickets by 40%</li>
-                                <li>Delivered summarization services via FastAPI microservices</li>
-                                <li>Built churn/usage/fraud models with PySpark, improving accuracy by 18%</li>
-                                <li>Productionized multi-tenant services on AKS with RBAC and monitoring</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="projects" class="section">
-            <div class="container">
-                <h2>Featured Projects</h2>
-                <div class="grid cards-3">
-                    <div class="card">
-                        <h3>Enterprise RAG Assistant</h3>
-                        <p class="muted">Azure OpenAI • Cognitive Search • LangChain</p>
-                        <p>Grounded answers on internal policies with RBAC, auditing, and prompt safety filters. Measured quality with retrieval + response evaluations.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Self-healing ML Monitoring</h3>
-                        <p class="muted">Azure ML • Grafana/Prometheus • App Insights</p>
-                        <p>Detected drift and anomalies in production pipelines, triggered automated retraining, and tracked latency, accuracy, and cost.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Support Automation Chatbot</h3>
-                        <p class="muted">FastAPI • AKS • CI/CD • A/B testing</p>
-                        <p>Reduced manual support and improved response accuracy with blue/green deployments and adoption tracking via Power BI.</p>
-                    </div>
-                </div>
-                <p class="project-note"><strong>Tip:</strong> Add 2–3 public GitHub repos to strengthen this section.</p>
-            </div>
-        </section>
-        
-        <section id="contact" class="section section-alt">
-            <div class="container">
-                <h2>Contact</h2>
-                <p>If you'd like to discuss GenAI/ML delivery, cloud AI engineering, or an enterprise roadmap, reach out:</p>
-                <div class="contact-list">
-                    <p><strong>Email:</strong> <a href="mailto:sravanreddygatla9@gmail.com">sravanreddygatla9@gmail.com</a></p>
-                    <p><strong>Phone:</strong> <a href="tel:+12406210619">+1 (240) 621-0619</a></p>
-                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sravan-gatla-2a0110125" target="_blank">sravan-gatla-2a0110125</a></p>
-                </div>
-                <form id="contactForm" style="margin-top:24px;">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    <button type="submit" class="btn" style="margin-top:12px;">Send</button>
-                </form>
-            </div>
-        </section>
-    </main>
-    
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <p>&copy; <span id="year"></span> Sravan Gatla. Built with plain HTML/CSS/JS.</p>
-                <div class="footer-links">
-                    <a href="https://linkedin.com/in/sravan-gatla-2a0110125" target="_blank">LinkedIn</a>
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>Software Engineer</h3>
+                    <p>Quest Global / Mahindra</p>
+                    <p>Developed enterprise applications and integrated API solutions.</p>
                 </div>
             </div>
         </div>
-    </footer>
-    
-    <script src="script.js"></script>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fas fa-brain"></i><br>GenAI / LLMs</div>
+            <div class="skill-card"><i class="fab fa-python"></i><br>Python / Node.js</div>
+            <div class="skill-card"><i class="fab fa-microsoft"></i><br>Azure Cloud</div>
+            <div class="skill-card"><i class="fab fa-aws"></i><br>AWS Services</div>
+            <div class="skill-card"><i class="fas fa-database"></i><br>Vector DBs / RAG</div>
+            <div class="skill-card"><i class="fas fa-code-branch"></i><br>DevOps / CI/CD</div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" style="background: #f1f5f9;">
+    <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea rows="5" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<!-- Chatbot -->
+<div id="chatbot-toggle">
+    <i class="fas fa-comments fa-2x"></i>
+</div>
+
+<div id="chatbot-widget">
+    <div id="chatbot-header">
+        <img src="sravan-profile.jpg" alt="Sravan Bot">
+        <strong>Sravan's Assistant</strong>
+    </div>
+    <div id="chatbot-messages" style="display: flex; flex-direction: column;">
+        <div class="message bot-msg">Hi! I'm Sravan's AI assistant. How can I help you today?</div>
+        <div class="message bot-msg">You can ask about my skills, experience, or projects!</div>
+    </div>
+    <div id="chatbot-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn" class="btn" style="padding: 0.5rem 1rem;">Send</button>
+    </div>
+</div>
+
+<script>
+    const toggle = document.getElementById('chatbot-toggle');
+    const widget = document.getElementById('chatbot-widget');
+    const sendBtn = document.getElementById('send-btn');
+    const userInput = document.getElementById('user-input');
+    const messages = document.getElementById('chatbot-messages');
+
+    toggle.onclick = () => {
+        widget.style.display = widget.style.display === 'flex' ? 'none' : 'flex';
+    };
+
+    function addMessage(text, isUser) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message ${isUser ? 'user-msg' : 'bot-msg'}`;
+        msgDiv.textContent = text;
+        messages.appendChild(msgDiv);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    sendBtn.onclick = () => {
+        const text = userInput.value.trim();
+        if (!text) return;
+        addMessage(text, true);
+        userInput.value = '';
+        
+        setTimeout(() => {
+            let response = "That's interesting! Feel free to reach out via the contact form for more details.";
+            const lowText = text.toLowerCase();
+            if (lowText.includes('skill')) response = "I'm expert in Python, Azure, GenAI, LLMs, and RAG architectures.";
+            else if (lowText.includes('experience')) response = "I have extensive experience at Wells Fargo and Wabtec working on cloud and AI solutions.";
+            else if (lowText.includes('contact')) response = "You can use the contact form on this page or find me on LinkedIn!";
+            
+            addMessage(response, false);
+        }, 800);
+    };
+
+    userInput.onkeypress = (e) => { if (e.key === 'Enter') sendBtn.click(); };
+</script>
+
 </body>
 </html>
